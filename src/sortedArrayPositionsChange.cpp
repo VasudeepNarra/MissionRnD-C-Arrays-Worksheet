@@ -11,9 +11,19 @@ ERROR CASES: Return NULL for invalid Inputs.
 NOTES:
 */
 
+
 #include <stdio.h>
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	int i = 0, j = len - 1, temp = 0;
+	if (len <= 0 || Arr == NULL)return NULL;
+	while (i < len - 1 && Arr[i] < Arr[i + 1])
+		i++;
+	while (j > 0 && Arr[j] > Arr[j - 1])
+		j--;
+	temp = Arr[i];
+	Arr[i] = Arr[j];
+	Arr[j] = temp;
+	return Arr;
 }
