@@ -29,7 +29,7 @@ namespace spec
 		bool validate(int expected[], int len, struct student **result) {
 			int *actual = (int *)malloc(len * sizeof(int));
 			for (int i = 0; i < len; ++i) {
-				actual[i] = result[i]->score;
+				actual[i] = (*result+i)->score;
 			}
 			sort(actual, len);
 			for (int i = 0; i < len; ++i) {
